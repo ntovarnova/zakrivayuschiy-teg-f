@@ -1,19 +1,21 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
-  --accent-color: #000;
+  --themes-background: #000;
+  --back-image: url(../images/background-2.png);
+  --gradient: repeating-linear-gradient(
+      to right,
+      #000 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(180deg, #000 0 2px, transparent 2px 4px),
+    linear-gradient(180deg, #007f0c, #004306);
+  --wght: 465;
+  --wgth-a: 785;
   --accent-font: "PressStart2P";
   --main-font: "Inter-Variable";
-  --wght: 400;
-  --wgth-a: 700;
-  --themes-background: #fff;
-  --back-image: url(../images/background.png);
-  --gradient: repeating-linear-gradient(
-      to left,
-      #d3d3d3,
-      rgb(255 255 255 / 0) 2px
-    ),
-    repeating-linear-gradient(to top, #d3d3d3, rgb(255 255 255 / 0) 2px),
-    linear-gradient(to bottom, #e7e7e7 0, #1a1a1a 100%);
-  --themes-main-color: #000;
-  fill: #000;
+  --themes-main-color: #00cc14;
+  --accent-color: #00cc14;
+  fill: #00cc14;
+  --accent: #00cc14;
+  --heard: #F00;
 }

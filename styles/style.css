@@ -13,26 +13,24 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font, sans-serif);
   font-variation-settings: var(--wght, 400);
-  background-color: var(--themes-background, #fff);
+  background-color: var(--themes-background, #000);
   background-image: var(--back-image);
-  --gradient: repeating-linear-gradient(
-      to left,
-      #d3d3d3,
-      rgb(255 255 255 / 0) 2px
-    ),
-    repeating-linear-gradient(to top, #d3d3d3, rgb(255 255 255 / 0) 2px),
-    linear-gradient(to bottom, #e7e7e7 0, #1a1a1a 100%);
+  background-image: var(
+    --gradient,
+    repeating-linear-gradient(to right, #000 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(180deg, #000 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(180deg, #007f0c, #004306)
+  );
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
-  color: var(--themes-main-color, #000);
+  color: var(--themes-main-color, #00cc14);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,21 +42,20 @@
 .card__header {
   width: 100%;
   max-width: 696px;
-  border: 2px solid var(--themes-main-color, #000);
-  background: var(--themes-background, #fff);
+  border: 2px solid var(--themes-main-color, #00cc14);
+  background: var(--themes-background, #000);
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-block-end: 57px;
+  margin-block-end: 104px;
+  min-height: 364px;
 }
 
 header {
-  font-family: var(--accent-font, "PressStart2P");
+  font-family: var(--accent-font, "PressStart2P", sans-serif);
   font-style: normal;
   font-weight: var(--wght, 400);
   line-height: normal;
   text-transform: uppercase;
-  margin-block-end: 107px;
 }
 
 .header__title {
@@ -73,28 +70,85 @@ header {
   text-align: center;
 }
 
+.theme-menu__button {
+  border: none;
+  position: relative;
+  cursor: pointer;
+  background: var(--themes-background, #000);
+}
+
 .theme-menu__list {
   font-size: 14px;
   margin-block-end: 25px;
   position: relative;
   list-style: none;
-  text-align: center;
-  gap: 14px;
+  margin-left: 185px;
+  gap: 12px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
+  padding-bottom: 25px;
 }
 
-.theme-menu__button {
-  position: relative;
+.theme-menu__item:hover {
+  color: var(--themes-main-color, #00cc14);
+  opacity: 0.6;
+}
+
+.theme-menu__item::after:focus-visible {
+  transform: scaleX(1);
+  opacity: 0.6;
+}
+
+.theme-menu__item:focus {
+  outline: none;
   border: none;
 }
 
-:disabled::before {
+.theme-menu__item {
+  position: relative;
+}
+
+.theme-menu__item::after {
+  position: absolute;
+  content: "";
+  width: 84px;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background: var(--themes-main-color, #00cc14);
+  transform: scale(0);
+  transition: 0.5s;
+  transform-origin: left;
+}
+
+.theme-menu__button:active {
+  opacity: 0.6;
+}
+
+.theme-menu__button:disabled:hover {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
   position: absolute;
   content: "▶";
-  left: -15px;
+  inset-inline-start: -110px;
+  animation-name: arrow;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  opacity: 0.6;
+}
+
+@keyframes arrow {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: 4px;
+  }
 }
 
 .preparation,
@@ -104,30 +158,30 @@ header {
 .near,
 .strategies,
 .when {
-  max-width: 696px;
-  border: 2px solid var(--themes-main-color, #000);
-  background: var(--themes-background, #fff);
+  border: 2px solid var(--themes-main-color, #00cc14);
+  background: var(--themes-background, #000);
   margin-block-end: 57px;
 }
 
 .now {
   max-width: 696px;
-  border: 2px solid var(--themes-main-color, #000);
-  background: var(--themes-background, #fff);
+  border: 2px solid var(--themes-main-color, #00cc14);
+  background: var(--themes-background, #000);
   margin-block-end: 54px;
 }
 
 .heading {
-  color: var(--themes-main-color, #000);
-  font-family: var(--main-font, "Inter-Variable");
+  color: var(--themes-main-color, #00cc14);
+  font-family: var(--main-font, "Inter-Variable", sans-serif);
   font-size: 18px;
   font-style: normal;
   font-weight: var(--wgth-a, 700);
   line-height: normal;
   max-width: 696px;
   min-height: 31px;
-  background-color: var(--themes-background, #fff);
+  background-color: var(--themes-background, #000);
   padding: 5px 24px 5px 10px;
+  border-bottom: 2px solid var(--themes-main-color, #00cc14);
 }
 
 img {
@@ -140,10 +194,9 @@ img {
 
 .content__text-block {
   max-width: 696px;
-  min-height: 224px;
-  background-color: var(--themes-background, #fff);
-  color: var(--themes-main-color, #000);
-  font-family: var(--main-font, "Inter-Variable");
+  background-color: var(--themes-background, #000);
+  color: var(--themes-main-color, #00cc14);
+  font-family: var(--main-font, "Inter-Variable", sans-serif);
   font-size: 18px;
   font-style: normal;
   font-weight: var(--wght, 400);
@@ -151,53 +204,293 @@ img {
 }
 
 .content__paragraph {
-  padding: 27px 25px 0;
+  padding: 21px 25px 0;
 }
 
 .container {
   display: flex;
-  gap: 12px;
   justify-content: end;
   padding: 25px;
-  align-items: center;
+}
+
+.card__icon-button:focus-visible {
+  outline: none;
+  transition: 0.3s ease;
+  border: 2px solid var(--themes-main-color, #00cc14);
+}
+
+.card__icon-button {
+  background: var(--themes-background, #000);
+  color: var(--themes-main-color, #00cc14);
+  display: flex;
+  border: transparent;
+}
+
+.card__icon-button:focus {
+  outline: none;
+  border: none;
+}
+
+.like-icon:active .main-body {
+  fill: var(--heard, #f00);
+  transition: 0.3s 0.05s;
+  opacity: 1;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--themes-main-color, #00cc14);
+  transition: 0.3s 0.05s;
+  opacity: 1;
+}
+
+.contour {
+  fill: var(--themes-main-color, #00cc14);
+}
+
+.core:hover {
+  fill: var(--themes-main-color, #00cc14);
+  opacity: 1;
+  transition: 0.03s 0.3s;
+}
+
+.core:active {
+  fill: var(--heard #f00);
+  opacity: 1;
+  transition: 0.03s 0.3s;
+}
+
+.heard,
+.like-icon.is-liked .contour {
+  fill: var(--heard, #f00);
+  animation: 0.3s ease-in;
+}
+
+@keyframes heard {
+  0% {
+    scale: 1;
+    transform-origin: center;
+  }
+  100% {
+    scale: 1.5;
+    transform-origin: center;
+  }
+}
+
+@keyframes sparks{
+0%{
+
+}
+100%{
+
+}
+
+}
+
+.core {
+  opacity: 0;
+}
+
+.main-body {
+  opacity: 0;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.picture {
+  position: relative;
+  border-bottom: 2px solid var(--themes-main-color, #00cc14);
+  max-width: 696px;
+  min-height: 696px;
+}
+
+.label {
+  position: absolute;
+  color: var(--themes-main-color, #00cc14);
+  font-family: var(--accent-font, "PressStart2P", sans-serif);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: var(--wght);
+  line-height: normal;
+  text-transform: uppercase;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  text-shadow: -1px 0 var(--themes-background, #000),
+    0 1px var(--themes-background, #000), 1px 0 var(--themes-background, #000),
+    0 -1px var(--themes-background, #000);
+  right: 25px;
+  top: 25px;
+}
+
+@supports (-webkit-text-stroke: 1px var(--themes-background, #000)) {
+  .label {
+    -webkit-text-stroke: 1px var(--themes-background, #000);
+  }
+}
+
+.text {
+  text-transform: lowercase;
+}
+
+.not {
+  text-transform: none;
+}
+
+.like-icon {
+  color: var(--themes-main-color, #00cc14);
 }
 
 .card__like-button {
-  color: var(--themes-main-color, #000);
-  font-family: var(--accent-font);
+  color: var(--themes-main-color, #00cc14);
+  font-family: var(--accent-font, "PressStart2P", sans-serif);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 90%;
   width: 130px;
-  height: 38px;
-  border: 2px solid var(--themes-main-color, #000);
-  background: var(--themes-background, #fff);
+  min-height: 38px;
+  border: 2px solid var(--themes-main-color, #00cc14);
+  background: var(--themes-background, #000);
+  transition: 0.5s;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.card__like-button:focus {
+  outline: none;
+  border: none;
+}
+
+.card__like-button:focus-visible {
+  outline: none;
+  border: 2px solid var(--themes-main-color, #00cc14);
+  box-shadow: 2px 2px 0px 0px var(--themes-main-color, #00cc14);
+  transition: 0.3s ease;
+}
+
+.card__like-button::after {
+  background: var(--themes-main-color, #00cc14);
+  color: var(--themes-background, #fff);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.card__like-button:hover::after {
+  transform: scaleX(1);
+}
+
+.button__text {
+  position: relative;
+  z-index: 1;
+  color: var(--accent, #00cc14);
+  mix-blend-mode: difference;
 }
 
 .button__footer {
+  cursor: pointer;
   width: 335px;
-  height: 51px;
+  min-height: 51px;
   margin-block-end: 105px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font, "PressStart2P", sans-serif);
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--wght, 400);
   line-height: 90%;
-  border: 2px solid var(--themes-main-color, #000);
-  background: var(--themes-background, #fff);
+  border: 2px solid var(--themes-main-color, #00cc14);
+  background: var(--themes-background, #000);
+  transition: 0.5s;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.button__footer::after {
+  background: var(--themes-main-color, #00cc14);
+  color: var(--themes-background, #fff);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.button__footer:hover::after {
+  transform: scaleX(1);
 }
 
 .footer__floppy {
   max-width: 21px;
   max-height: 21px;
-  fill: var(--accent-color, #000);
-  stroke: var(--accent-color, #000);
+  mix-blend-mode: difference;
+  position: relative;
+  z-index: 1;
+  fill: var(--accent, #00cc14);
+  stroke: var(--accent, #00cc14);
 }
 
 @media (width <= 375px) {
+  .card__header {
+    min-height: 323px;
+    margin-block-end: 99px;
+  }
+
+  .header__title {
+    margin-top: 120px;
+  }
+
+  .theme-menu__list {
+    gap: 12px;
+    margin-left: 135px;
+    padding: 0;
+  }
+
+  .preparation,
+  .blank,
+  .if,
+  .chase,
+  .near,
+  .strategies,
+  .when {
+    margin-block-end: 50px;
+  }
+
+  .picture {
+    max-width: 371px;
+    min-height: 371px;
+  }
+
+  .content__paragraph {
+    padding: 25px 25px 0;
+  }
+
+  .button__footer {
+    flex-direction: column;
+    width: 306px;
+    min-height: 80px;
+    margin: 0;
+    margin-block-end: 102px;
+  }
+
+  .footer__floppy {
+    width: 28px;
+    height: 28px;
+  }
 }

@@ -526,7 +526,7 @@ dialog:not([open]) {
   stroke: var(--accent-color, #00cc14);
 }
 
-.close {
+.close-button{
   display: flex;
   width: 293px;
   height: 38px;

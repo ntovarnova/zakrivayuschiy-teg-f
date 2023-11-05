@@ -582,13 +582,15 @@
         <use href="svg/floppy-4-2.svg#floppy-4-2" />
       </svg>
       <p>Вставьте дискету, чтобы продолжить</p>
-      <button
-        class="close"
-        type="submit"
-        onclick="window['dialog-id'].close();"
-      >
-        ok
-      </button>
+      <form method="dialog">
+        <button
+          class="close"
+          type="submit"
+          onclick="window['dialog-id'].close();"
+        >
+          ok
+        </button>
+      </form>
     </dialog>
     <script src="./scripts/like.js"></script>
   </body>

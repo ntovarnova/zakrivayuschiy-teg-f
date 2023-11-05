@@ -352,10 +352,8 @@ img {
   }
 }
 
- @media path {
-
-  
-  100% {
+@media {
+  path {
     fill: var(--heard, #f00);
   }
 }

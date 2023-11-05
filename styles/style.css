@@ -19,17 +19,14 @@
   font-family: var(--main-font, sans-serif);
   font-variation-settings: var(--wght, 400);
   background-color: var(--themes-background, #000);
-  background-image: var(--back-image),
-    var(
+  background-image:var(
       --gradient,
-      repeating-linear-gradient(to right, #000 0 2px, transparent 2px 4px),
-      repeating-linear-gradient(180deg, #000 0 2px, transparent 2px 4px),
-      repeating-linear-gradient(180deg, #007f0c, #004306)
+      repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 4px),
+      repeating-linear-gradient(0deg, #000 0 2px, transparent 2px 4px),
+      repeating-linear-gradient( #007f0c 0%, #004306 100%)
     );
   background-size: cover;
   background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
   color: var(--themes-main-color, #00cc14);
   display: flex;
   flex-direction: column;
@@ -89,14 +86,15 @@ header {
 .theme-menu__item::after {
   position: absolute;
   content: "";
-  width: 84px;
+  width:85px;
   height: 2px;
   left: 0;
-  bottom: 0;
+  bottom: -2;
+  display: block;
   background: var(--themes-main-color, #00cc14);
-  transform: scale(0);
-  transition: 0.5s;
-  transform-origin: left;
+   scale:0;
+  transition: scale 0.3s ease;
+  transform-origin: left center;
 }
 
 .theme-menu__item:hover {
@@ -104,9 +102,8 @@ header {
   opacity: 0.6;
 }
 
-.theme-menu__item::after:focus-visible {
-  transform: scaleX(1);
-  opacity: 0.6;
+.theme-menu__item:focus-visible::after {
+  scale:1;
 }
 
 .theme-menu__item:focus {
@@ -191,7 +188,7 @@ header {
   border-bottom: 2px solid var(--themes-main-color, #00cc14);
   max-width: 696px;
   min-height: 696px;
-  aspect-ratio: 1;
+  aspect-ratio: 1/1;
 }
 
 .label {
@@ -229,47 +226,36 @@ img {
   display: block;
 }
 
-.dubai,
-.blank-page,
-.go,
-.bubbles,
-.colleagues,
-.strategies,
-.ladder,
-.path {
-  filter: opacity(0.4);
-}
-
 .dubai {
-  filter: blur(2px);
+  filter: blur(2px)  grayscale(0.5);
 }
 
 .blank-page {
-  filter: grayscale(80%);
+  filter: grayscale(80%) grayscale(0.5);
 }
 
 .go {
-  filter: brightness(150%);
+  filter: brightness(150%) grayscale(0.5);
 }
 
 .bubbles {
-  filter: contrast(150%);
+  filter: contrast(150%) grayscale(0.5);
 }
 
 .colleagues {
-  filter: hue-rotate(90deg);
+  filter: hue-rotate(90deg) grayscale(0.5);
 }
 
 .strategies {
-  filter: invert(20%);
+  filter: invert(20%) grayscale(0.5);
 }
 
 .ladder {
-  filter: saturate(50%);
+  filter: saturate(50%) grayscale(0.5);
 }
 
 .path {
-  filter: sepia(100%);
+  filter: sepia(100%) grayscale(0.5);
 }
 
 .content__text-block {
@@ -311,7 +297,7 @@ img {
   border: none;
 }
 
-.main-body:active {
+.heart.like-icon:active .main-body{
   fill: var(--heard, #f00);
   transition: 0.3s 0.05s;
   opacity: 1;
@@ -339,7 +325,7 @@ img {
   transition: 0.03s 0.3s;
 }
 
-.heard .like-icon .is-liked:active.card__icon-button {
+.heard.like-icon.is-liked:active.card__icon-button {
   fill: var(--heard, #f00);
   animation: heard 0.3s ease-in both;
   animation-delay: 0.1s;
@@ -376,11 +362,14 @@ img {
 }
 
 .core {
+  fill: var( --heard, #f00);
   opacity: 0;
 }
 
 .main-body {
+  fill: var( --heard, #f00);
   opacity: 0;
+  transition: 0.3s;
 }
 
 .sparks {

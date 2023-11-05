@@ -19,13 +19,13 @@
   font-family: var(--main-font, sans-serif);
   font-variation-settings: var(--wght, 400);
   background-color: var(--themes-background, #000);
-  background-image: var(--back-image);
-  background-image: var(
-    --gradient,
-    repeating-linear-gradient(to right, #000 0 2px, transparent 2px 4px),
-    repeating-linear-gradient(180deg, #000 0 2px, transparent 2px 4px),
-    repeating-linear-gradient(180deg, #007f0c, #004306)
-  );
+  background-image: var(--back-image),
+    var(
+      --gradient,
+      repeating-linear-gradient(to right, #000 0 2px, transparent 2px 4px),
+      repeating-linear-gradient(180deg, #000 0 2px, transparent 2px 4px),
+      repeating-linear-gradient(180deg, #007f0c, #004306)
+    );
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -70,13 +70,6 @@ header {
   text-align: center;
 }
 
-.theme-menu__button {
-  border: none;
-  position: relative;
-  cursor: pointer;
-  background: var(--themes-background, #000);
-}
-
 .theme-menu__list {
   font-size: 14px;
   position: relative;
@@ -87,21 +80,6 @@ header {
   justify-content: center;
   flex-direction: column;
   padding-bottom: 25px;
-}
-
-.theme-menu__item:hover {
-  color: var(--themes-main-color, #00cc14);
-  opacity: 0.6;
-}
-
-.theme-menu__item:focus-visible::after {
-  transform: scaleX(1);
-  opacity: 0.6;
-}
-
-.theme-menu__item:focus {
-  outline: none;
-  border: none;
 }
 
 .theme-menu__item {
@@ -121,6 +99,21 @@ header {
   transform-origin: left;
 }
 
+.theme-menu__item:hover {
+  color: var(--themes-main-color, #00cc14);
+  opacity: 0.6;
+}
+
+.theme-menu__item::after:focus-visible {
+  transform: scaleX(1);
+  opacity: 0.6;
+}
+
+.theme-menu__item:focus {
+  outline: none;
+  border: none;
+}
+
 .theme-menu__button:active {
   opacity: 0.6;
 }
@@ -130,7 +123,7 @@ header {
   pointer-events: none;
 }
 
-:disabled::before {
+.theme-menu__button:disabled::before {
   position: absolute;
   content: "▶";
   inset-inline-start: -110px;
@@ -138,6 +131,16 @@ header {
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+}
+
+.theme-menu__button {
+  border: none;
+  position: relative;
+  cursor: pointer;
+  background: var(--themes-background, #000);
+}
+
+.theme-menu__button:disabled {
   opacity: 0.6;
 }
 
@@ -183,12 +186,58 @@ header {
   border-bottom: 2px solid var(--themes-main-color, #00cc14);
 }
 
+.picture {
+  position: relative;
+  border-bottom: 2px solid var(--themes-main-color, #00cc14);
+  max-width: 696px;
+  min-height: 696px;
+  aspect-ratio: 1;
+}
+
+.label {
+  position: absolute;
+  color: var(--themes-main-color, #00cc14);
+  font-family: var(--accent-font, "PressStart2P", sans-serif);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: var(--wght);
+  line-height: normal;
+  text-transform: uppercase;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  text-shadow: -1px 0 var(--themes-background, #000),
+    0 1px var(--themes-background, #000), 1px 0 var(--themes-background, #000),
+    0 -1px var(--themes-background, #000);
+  right: 25px;
+  top: 25px;
+}
+
+@supports (text-stroke: 1px var(--themes-background, #000)) or
+  (-webkit-text-stroke: 1px var(--themes-background, #000)) {
+  .label {
+    -webkit-text-stroke: 1px var(--themes-background, #000);
+    text-stroke: 1px var(--themes-background, #000);
+    text-shadow: none;
+  }
+}
+
 img {
   object-fit: cover;
   background-size: cover;
   width: 100%;
   height: 100%;
   display: block;
+}
+
+.dubai,
+.blank-page,
+.go,
+.bubbles,
+.colleagues,
+.strategies,
+.ladder,
+.path {
+  filter: opacity(0.4);
 }
 
 .dubai {
@@ -245,17 +294,16 @@ img {
   gap: 12px;
 }
 
-.card__icon-button:focus-visible {
-  outline: none;
-  transition: 0.3s ease;
-  border: 2px solid var(--themes-main-color, #00cc14);
-}
-
 .card__icon-button {
   background: var(--themes-background, #000);
   color: var(--themes-main-color, #00cc14);
   display: flex;
-  border: transparent;
+  border-color: transparent;
+}
+
+.card__icon-button:focus-visible {
+  outline: none;
+  border: 2px solid var(--themes-main-color, #00cc14);
 }
 
 .card__icon-button:focus {
@@ -263,7 +311,7 @@ img {
   border: none;
 }
 
-.like-icon:active .main-body {
+.main-body:active {
   fill: var(--heard, #f00);
   transition: 0.3s 0.05s;
   opacity: 1;
@@ -291,9 +339,7 @@ img {
   transition: 0.03s 0.3s;
 }
 
-.heard,
-.like-icon,
-.is-liked:active .card__icon-button {
+.heard .like-icon .is-liked:active.card__icon-button {
   fill: var(--heard, #f00);
   animation: heard 0.3s ease-in both;
   animation-delay: 0.1s;
@@ -339,41 +385,6 @@ img {
 
 .sparks {
   opacity: 0;
-}
-
-.picture {
-  position: relative;
-  border-bottom: 2px solid var(--themes-main-color, #00cc14);
-  max-width: 696px;
-  min-height: 696px;
-  aspect-ratio: 1;
-}
-
-.label {
-  position: absolute;
-  color: var(--themes-main-color, #00cc14);
-  font-family: var(--accent-font, "PressStart2P", sans-serif);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: var(--wght);
-  line-height: normal;
-  text-transform: uppercase;
-  opacity: 0.5;
-  mix-blend-mode: hard-light;
-  text-shadow: -1px 0 var(--themes-background, #000),
-    0 1px var(--themes-background, #000), 1px 0 var(--themes-background, #000),
-    0 -1px var(--themes-background, #000);
-  right: 25px;
-  top: 25px;
-}
-
-@supports (text-stroke: 1px var(--themes-background, #000)) or
-  (-webkit-text-stroke: 1px var(--themes-background, #000)) {
-  .label {
-    -webkit-text-stroke: 1px var(--themes-background, #000);
-    text-stroke: 1px var(--themes-background, #000);
-    text-shadow: none;
-  }
 }
 
 .text {
@@ -525,7 +536,7 @@ dialog:not([open]) {
 }
 
 .dialog__floppy {
-  fill: var(--accent-colo, #00cc14);
+  fill: var(--accent-color, #00cc14);
   stroke: var(--accent-color, #00cc14);
 }
 

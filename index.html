@@ -577,17 +577,19 @@
         <span class="button__text">Сохранить на память</span>
       </button>
     </footer>
-    <script src="./scripts/like.js"></script>
     <dialog id="dialog-id">
       <svg class="dialog__floppy">
         <use href="svg/floppy-4-2.svg#floppy-4-2" />
       </svg>
-      <h3>Вставьте дискету, чтобы продолжить</h3>
-      <form method="dialog">
-        <button class="close-button">
-          <span>ok</span>
-        </button>
-      </form>
+      <p>Вставьте дискету, чтобы продолжить</p>
+      <button
+        class="close"
+        type="button"
+        onclick="window['dialog-id'].close();"
+      >
+        ok
+      </button>
     </dialog>
+    <script src="./scripts/like.js"></script>
   </body>
 </html>

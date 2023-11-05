@@ -316,7 +316,7 @@ img {
 .core:hover {
   fill: var(--themes-main-color, #00cc14);
   opacity: 1;
-  transition: 0.03s 0.3s;
+  transition: color 0.03s 0.3s;
 }
 
 .core:active {
@@ -352,12 +352,6 @@ img {
   }
 }
 
-@media {
-  path {
-    fill: var(--heard, #f00);
-  }
-}
-
 .core {
   fill: var(--heard, #f00);
   opacity: 0;
@@ -370,6 +364,7 @@ img {
 }
 
 .sparks {
+  fill: var(--heard, #f00);
   opacity: 0;
 }
 
@@ -521,12 +516,17 @@ dialog:not([open]) {
   opacity: 0;
 }
 
+dialog[open] {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
 .dialog__floppy {
   fill: var(--accent-color, #00cc14);
   stroke: var(--accent-color, #00cc14);
 }
 
-.close-button{
+.close {
   display: flex;
   width: 293px;
   height: 38px;

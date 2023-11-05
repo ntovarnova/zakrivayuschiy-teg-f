@@ -352,10 +352,9 @@ img {
   }
 }
 
-@keyframes color {
-  0% {
-    fill: var(--themes-main-color, #00cc14);
-  }
+ @media path {
+
+  
   100% {
     fill: var(--heard, #f00);
   }

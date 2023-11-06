@@ -577,6 +577,7 @@ dialog[open] {
   gap: 10px;
   border: 2px solid var(--themes-main-color, #00cc14);
   background: var(--themes-background, #000);
+  cursor: pointer;
 }
 
 @media (width <= 696px) {

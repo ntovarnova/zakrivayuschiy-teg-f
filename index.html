@@ -595,7 +595,8 @@
       </svg>
       <p>Вставьте дискету, чтобы продолжить</p>
       <form method="dialog">
-        <button class="close" type="submit">ок</button>
+        <button class="close"
+          onclick="window['dialog-id'].close();" type="submit">ок</button>
       </form>
     </dialog>
     <script src="./scripts/like.js"></script>

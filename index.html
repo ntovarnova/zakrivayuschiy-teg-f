@@ -579,7 +579,7 @@
     <footer>
       <button
         class="button__footer"
-        type="button"
+        type="submit"
         onclick="window['dialog-id'].showModal();"
         aria-controls="dialog-id"
       >
@@ -589,18 +589,14 @@
         <span class="button__text">Сохранить на память</span>
       </button>
     </footer>
-    <dialog id="dialog-id">
+    <dialog class="dialog__footer" id="dialog-id">
       <svg class="dialog__floppy">
         <use href="svg/floppy-4-2.svg#floppy-4-2" />
       </svg>
       <p>Вставьте дискету, чтобы продолжить</p>
       <form method="dialog">
-        <button
-          class="close"
-          type="button"
-          onclick="window['dialog-id'].close();"
-        >
-          ok
+        <button class="close">
+          <span class="button__text">ok</span>
         </button>
       </form>
     </dialog>

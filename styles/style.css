@@ -81,6 +81,9 @@ header {
 
 .theme-menu__button {
   position: relative;
+  border: none;
+  cursor: pointer;
+  background: var(--themes-background, #000);
 }
 
 .theme-menu__button::after {
@@ -127,13 +130,6 @@ header {
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-}
-
-.theme-menu__button {
-  border: none;
-  position: relative;
-  cursor: pointer;
-  background: var(--themes-background, #000);
 }
 
 .theme-menu__button:disabled {
@@ -535,7 +531,7 @@ dialog::backdrop {
   backdrop-filter: blur(7px);
 }
 
-dialog {
+.dialog__footer {
   max-width: 357px;
   min-height: 193px;
   display: grid;
@@ -573,7 +569,7 @@ dialog[open] {
 
 .close {
   display: flex;
-  max-width: 293px;
+  width: 293px;
   min-height: 38px;
   padding: 9px 17px;
   justify-content: center;

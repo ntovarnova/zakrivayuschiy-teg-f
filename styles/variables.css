@@ -1,7 +1,6 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
   --themes-background: #000;
-  --back-image: url(../images/background-2.png);
   --gradient: repeating-linear-gradient(
       to right,
       #000 0 2px,

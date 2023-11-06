@@ -43,12 +43,12 @@
   background: var(--themes-background, #000);
   display: flex;
   justify-content: center;
-  margin-block-end: 104px;
+  margin-block-end: 100px;
   min-height: 364px;
 }
 
 header {
-  font-family: var(--accent-font, "PressStart2P", sans-serif);
+  font-family: var(--accent-font, sans-serif);
   font-style: normal;
   font-weight: var(--wght, 400);
   line-height: normal;
@@ -79,15 +79,15 @@ header {
   padding-bottom: 25px;
 }
 
-.theme-menu__item {
+.theme-menu__button {
   position: relative;
 }
 
-.theme-menu__item::after {
+.theme-menu__button::after {
   position: absolute;
   content: "";
-  width: 85px;
-  height: 2px;
+  max-width: 85px;
+  min-height: 2px;
   left: 0;
   bottom: -2;
   display: block;
@@ -97,18 +97,17 @@ header {
   transform-origin: left center;
 }
 
-.theme-menu__item:hover {
+.theme-menu__button:hover {
   color: var(--themes-main-color, #00cc14);
   opacity: 0.6;
 }
 
-.theme-menu__item:focus-visible::after {
+.theme-menu__button:focus-visible::after {
   scale: 1;
 }
 
-.theme-menu__item:focus {
+.theme-menu__button:focus {
   outline: none;
-  border: none;
 }
 
 .theme-menu__button:active {
@@ -159,7 +158,7 @@ header {
 .when {
   border: 2px solid var(--themes-main-color, #00cc14);
   background: var(--themes-background, #000);
-  margin-block-end: 60px;
+  margin-block-end: 57px;
 }
 
 .now {
@@ -171,7 +170,7 @@ header {
 
 .heading {
   color: var(--themes-main-color, #00cc14);
-  font-family: var(--main-font, "Inter-Variable", sans-serif);
+  font-family: var(--main-font, sans-serif);
   font-size: 18px;
   font-style: normal;
   font-weight: var(--wgth-a, 700);
@@ -194,7 +193,7 @@ header {
 .label {
   position: absolute;
   color: var(--themes-main-color, #00cc14);
-  font-family: var(--accent-font, "PressStart2P", sans-serif);
+  font-family: var(--accent-font, sans-serif);
   font-size: 14px;
   font-style: normal;
   font-weight: var(--wght);
@@ -260,9 +259,10 @@ img {
 
 .content__text-block {
   max-width: 696px;
+  min-height: 100%;
   background-color: var(--themes-background, #000);
   color: var(--themes-main-color, #00cc14);
-  font-family: var(--main-font, "Inter-Variable", sans-serif);
+  font-family: var(--main-font, sans-serif);
   font-size: 18px;
   font-style: normal;
   font-weight: var(--wght, 400);
@@ -270,14 +270,13 @@ img {
 }
 
 .content__paragraph {
-  padding: 21px 25px 0;
+  padding: 20px 25px 0;
 }
 
 .container {
   display: flex;
   justify-content: end;
-  padding: 25px;
-  gap: 12px;
+  padding: 28px;
 }
 
 .card__icon-button {
@@ -286,20 +285,16 @@ img {
   display: flex;
   border-color: transparent;
   cursor: pointer;
-  border: none;
-  outline: none;
-  background-color: transparent;
 }
 
 .card__icon-button:focus-visible {
-  outline: none;
   border: 2px solid var(--themes-main-color, #00cc14);
   transition: 0.3s ease;
+  outline: none;
 }
 
 .card__icon-button:focus {
   outline: none;
-  border: none;
 }
 
 .card__icon-button:active .core {
@@ -310,6 +305,11 @@ img {
 
 .card__icon-button:active .main-body {
   fill: var(--heard, #f00);
+  opacity: 1;
+}
+
+.contour:active {
+  fill: var(--themes-main-color, #00cc14);
   opacity: 1;
 }
 
@@ -326,19 +326,20 @@ img {
 }
 
 .like-icon.is-liked .contour {
-  fill: var(--themes-main-color);
+  fill: var(--heard, #f00);
   transition: 0.3 0.06s linear;
+  opacity: 1;
 }
 
 .like-icon.is-liked .core {
-  fill: var(--heard #f00);
-  opacity: 1;
   transition: fill 0.03s 0.3s linear;
+  opacity: 1;
 }
 
 .like-icon.is-liked .main-body {
-  fill: var(--themes-main-color, #00cc14);
-  transition: fill 0.3s 0.05s lienear;
+  fill: var(--heard, #f00);
+  transition: fill 0.3s 0.05s linear;
+  opacity: 1;
 }
 
 .like-icon.is-liked {
@@ -372,13 +373,27 @@ img {
   }
 }
 
+@keyframes fill {
+  0% {
+    fill: var(--themes-main-color, #00cc14);
+  }
+  100% {
+    fill: var(--heard, #f00);
+  }
+}
+
+.contour {
+  fill: var(--themes-main-color, #00cc14);
+  opacity: 1;
+}
+
 .core {
   fill: var(--heard, #f00);
   opacity: 0;
 }
 
 .main-body {
-  fill: var(--heard, #f00);
+  fill: var(--themes-main-color, #00cc14);
   opacity: 0;
   transition: 0.3s;
 }
@@ -402,7 +417,7 @@ img {
 
 .card__like-button {
   color: var(--themes-main-color, #00cc14);
-  font-family: var(--accent-font, "PressStart2P", sans-serif);
+  font-family: var(--accent-font, sans-serif);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -420,7 +435,6 @@ img {
 
 .card__like-button:focus {
   outline: none;
-  border: none;
 }
 
 .card__like-button:focus-visible {
@@ -458,6 +472,7 @@ img {
 .button__footer:focus-visible {
   outline: none;
   border: 2px solid var(--themes-main-color, #00cc14);
+  box-shadow: 2px 2px 0px 0px var(--themes-main-color, #00cc14);
   transition: 0.3s ease;
 }
 
@@ -467,14 +482,14 @@ img {
 
 .button__footer {
   cursor: pointer;
-  width: 335px;
+  max-width: 335px;
   min-height: 51px;
   margin-block-end: 105px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  font-family: var(--accent-font, "PressStart2P", sans-serif);
+  font-family: var(--accent-font, sans-serif);
   font-size: 14px;
   font-style: normal;
   font-weight: var(--wght, 400);
@@ -558,8 +573,8 @@ dialog[open] {
 
 .close {
   display: flex;
-  width: 293px;
-  height: 38px;
+  max-width: 293px;
+  min-height: 38px;
   padding: 9px 17px;
   justify-content: center;
   align-items: center;
@@ -568,7 +583,7 @@ dialog[open] {
   background: var(--themes-background, #000);
 }
 
-@media (width <= 375px) {
+@media (width <= 696px) {
   .card__header {
     min-height: 323px;
     margin-block-end: 99px;
@@ -589,8 +604,9 @@ dialog[open] {
   .if,
   .chase,
   .near,
-  .strategies,
-  .when {
+  .sprint,
+  .when,
+  .now {
     margin-block-end: 50px;
   }
 
@@ -600,19 +616,19 @@ dialog[open] {
   }
 
   .content__paragraph {
-    padding: 25px 25px 0;
+    padding: 24px 25px 0;
   }
 
   .button__footer {
     flex-direction: column;
-    width: 306px;
+    max-width: 306px;
     min-height: 80px;
     margin: 0;
     margin-block-end: 102px;
   }
 
   .footer__floppy {
-    width: 28px;
-    height: 28px;
+    max-width: 28px;
+    min-height: 28px;
   }
 }

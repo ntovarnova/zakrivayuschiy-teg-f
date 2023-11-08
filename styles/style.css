@@ -17,7 +17,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font, sans-serif);
-  font-variation-settings: var(--wght, 400);
+  font-variation-settings: var(--wght) 400;
   background-color: var(--themes-background, #000);
   background-image: var(
     --gradient,
@@ -33,22 +33,22 @@
   align-items: center;
   max-width: 1440px;
   min-height: 100vh;
-  margin-block-start: 102px;
+  margin: auto;
 }
 
-.card__header {
+.header {
+  margin-block-start: 102px;
   width: 100%;
   max-width: 696px;
   border: 2px solid var(--themes-main-color, #00cc14);
   background: var(--themes-background, #000);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
   margin-block-end: 100px;
   min-height: 364px;
-}
-
-header {
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font, Curlz MT);
   font-style: normal;
   font-weight: var(--wght, 400);
   line-height: normal;
@@ -56,9 +56,10 @@ header {
 }
 
 .header__title {
-  margin-top: 136px;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   margin-block-end: 20px;
+  text-decoration: none;
+  display: flex;
 }
 
 .header__title-closing {
@@ -71,12 +72,12 @@ header {
   font-size: 14px;
   position: relative;
   list-style: none;
-  margin-left: 185px;
   gap: 12px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding-bottom: 25px;
+  margin-left: 13px;
 }
 
 .theme-menu__button {
@@ -92,7 +93,7 @@ header {
   max-width: 85px;
   min-height: 2px;
   left: 0;
-  bottom: -2;
+  bottom: 0;
   display: block;
   background: var(--themes-main-color, #00cc14);
   scale: 0;
@@ -103,6 +104,7 @@ header {
 .theme-menu__button:hover {
   color: var(--themes-main-color, #00cc14);
   opacity: 0.6;
+  transition: 0.6s 0.3s ease;
 }
 
 .theme-menu__button:focus-visible::after {
@@ -130,55 +132,34 @@ header {
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .theme-menu__button:disabled {
   opacity: 0.6;
+  pointer-events: none;
 }
 
-@keyframes arrow {
-  0% {
-    right: 0;
-  }
-  100% {
-    right: 4px;
-  }
-}
-
-.preparation,
-.blank,
-.if,
-.chase,
-.near,
-.sprint,
-.when {
+.card {
   border: 2px solid var(--themes-main-color, #00cc14);
   background: var(--themes-background, #000);
-  margin-block-end: 57px;
+  margin-block-end: 44px;
 }
 
-.now {
-  max-width: 696px;
-  border: 2px solid var(--themes-main-color, #00cc14);
-  background: var(--themes-background, #000);
-  margin-block-end: 54px;
-}
-
-.heading {
+.card__title {
   color: var(--themes-main-color, #00cc14);
   font-family: var(--main-font, sans-serif);
   font-size: 18px;
   font-style: normal;
-  font-weight: var(--wgth-a, 700);
+  font-variation-settings: var(--wght-a);
   line-height: normal;
   max-width: 696px;
-  min-height: 31px;
   background-color: var(--themes-background, #000);
   padding: 5px 24px 5px 10px;
   border-bottom: 2px solid var(--themes-main-color, #00cc14);
 }
 
-.picture {
+.card__description {
   position: relative;
   border-bottom: 2px solid var(--themes-main-color, #00cc14);
   max-width: 696px;
@@ -196,6 +177,7 @@ header {
   line-height: normal;
   text-transform: uppercase;
   opacity: 0.5;
+  z-index: 1;
   mix-blend-mode: hard-light;
   text-shadow: -1px 0 var(--themes-background, #000),
     0 1px var(--themes-background, #000), 1px 0 var(--themes-background, #000),
@@ -266,13 +248,13 @@ img {
 }
 
 .content__paragraph {
-  padding: 20px 25px 0;
+  padding: 25px 25px 0;
 }
 
 .container {
   display: flex;
   justify-content: end;
-  padding: 28px;
+  padding: 27.5px;
 }
 
 .card__icon-button {
@@ -294,13 +276,13 @@ img {
 }
 
 .card__icon-button:active .core {
-  fill: var(--heard, #f00);
+  fill: var(--heart, #f00);
   transition: 0.3s 0.05s;
   opacity: 1;
 }
 
 .card__icon-button:active .main-body {
-  fill: var(--heard, #f00);
+  fill: var(--heart, #f00);
   opacity: 1;
 }
 
@@ -309,21 +291,21 @@ img {
   opacity: 1;
 }
 
+.like-icon:hover .core {
+  fill: var(--themes-main-color, #00cc14);
+  opacity: 1;
+  transition: color 0.03s 0.3s;
+}
+
 .like-icon:hover .main-body {
   fill: var(--themes-main-color, #00cc14);
   transition: 0.3s 0.05s linear;
   opacity: 1;
 }
 
-.core:hover {
-  fill: var(--themes-main-color, #00cc14);
-  opacity: 1;
-  transition: color 0.03s 0.3s;
-}
-
 .like-icon.is-liked .contour {
-  fill: var(--heard, #f00);
-  transition: 0.3 0.06s linear;
+  fill: var(--heart, #f00);
+  transition: fill 0.3s 0.06s linear;
   opacity: 1;
 }
 
@@ -333,49 +315,19 @@ img {
 }
 
 .like-icon.is-liked .main-body {
-  fill: var(--heard, #f00);
+  fill: var(--heart, #f00);
   transition: fill 0.3s 0.05s linear;
   opacity: 1;
 }
 
 .like-icon.is-liked {
-  animation: heard 0.3s 0.1s ease-in 1 alternate;
+  animation: heart 0.3s 0.1s ease-in 1 alternate;
 }
 
 .like-icon.is-liked .sparks {
-  fill: var(--heard, #f00);
+  fill: var(--heart, #f00);
   animation: sparks 0.3s ease-in 1 alternate forwards;
   opacity: 1;
-}
-
-@keyframes heard {
-  0% {
-    scale: 1;
-    transform-origin: center;
-  }
-  100% {
-    scale: 1.5;
-    transform-origin: center;
-  }
-}
-
-@keyframes sparks {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes fill {
-  0% {
-    fill: var(--themes-main-color, #00cc14);
-  }
-  100% {
-    fill: var(--heard, #f00);
-  }
 }
 
 .contour {
@@ -384,7 +336,7 @@ img {
 }
 
 .core {
-  fill: var(--heard, #f00);
+  fill: var(--heart, #f00);
   opacity: 0;
 }
 
@@ -395,7 +347,7 @@ img {
 }
 
 .sparks {
-  fill: var(--heard, #f00);
+  fill: var(--heart, #f00);
   opacity: 0;
 }
 
@@ -411,21 +363,24 @@ img {
   color: var(--themes-main-color, #00cc14);
 }
 
-.card__like-button {
-  color: var(--themes-main-color, #00cc14);
-  font-family: var(--accent-font, sans-serif);
-  font-size: 14px;
+.button {
   font-style: normal;
   font-weight: 400;
   line-height: 90%;
+  cursor: pointer;
+}
+
+.button,
+.card__like-button {
+  color: var(--themes-main-color, #00cc14);
+  font-family: var(--accent-font, sans-serif);
   width: 130px;
   min-height: 38px;
+  font-size: 14px;
   border: 2px solid var(--themes-main-color, #00cc14);
   background: var(--themes-background, #000);
   transition: 0.5s;
-  cursor: pointer;
   position: relative;
-  z-index: 1;
   overflow: hidden;
 }
 
@@ -476,25 +431,23 @@ img {
   outline: none;
 }
 
+.button,
 .button__footer {
   cursor: pointer;
-  max-width: 335px;
+  width: 335px;
   min-height: 51px;
   margin-block-end: 105px;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  font-family: var(--accent-font, sans-serif);
   font-size: 14px;
-  font-style: normal;
-  font-weight: var(--wght, 400);
-  line-height: 90%;
+  font-family: var(--accent-font, Curlz MT);
   border: 2px solid var(--themes-main-color, #00cc14);
   background: var(--themes-background, #000);
   transition: 0.5s;
   position: relative;
-  z-index: 1;
   overflow: hidden;
 }
 
@@ -505,8 +458,8 @@ img {
   position: absolute;
   width: 100%;
   height: 100%;
-  left: 0;
-  top: 0;
+  left: 0px;
+  top: 0px;
   transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
   transform-origin: left center;
@@ -516,9 +469,14 @@ img {
   transform: scaleX(1);
 }
 
+.floppy-6-2-2 {
+  width: 21px;
+  height: 21px;
+}
+
 .footer__floppy {
-  max-width: 21px;
-  max-height: 21px;
+  width: 21px;
+  height: 21px;
   mix-blend-mode: difference;
   position: relative;
   z-index: 1;
@@ -534,14 +492,11 @@ dialog::backdrop {
 .dialog__footer {
   max-width: 357px;
   min-height: 193px;
-  display: grid;
-  grid-template-columns: 90px 200px;
-  grid-template-rows: 100px;
   position: fixed;
   inset: 0;
   transition: opacity 0.3s ease-in-out;
   color: var(--themes-main-color, #00cc14);
-  font-family: var(--accent-font);
+  font-family: var(--accent-font, Curlz MT);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -565,6 +520,16 @@ dialog[open] {
 .dialog__floppy {
   fill: var(--accent-color, #00cc14);
   stroke: var(--accent-color, #00cc14);
+  width: 39px;
+  height: 39px;
+}
+
+.svg {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto;
+  align-items: center;
+  margin-block-end: 30px;
 }
 
 .close {
@@ -576,14 +541,14 @@ dialog[open] {
   align-items: center;
   gap: 10px;
   border: 2px solid var(--themes-main-color, #00cc14);
-  background: var(--themes-background, #000);
   cursor: pointer;
 }
 
 @media (width <= 696px) {
-  .card__header {
+  .header {
     min-height: 323px;
     margin-block-end: 99px;
+    justify-content: flex-start;
   }
 
   .header__title {
@@ -592,22 +557,15 @@ dialog[open] {
 
   .theme-menu__list {
     gap: 12px;
-    margin-left: 135px;
     padding: 0;
+    margin-left: 20px;
   }
 
-  .preparation,
-  .blank,
-  .if,
-  .chase,
-  .near,
-  .sprint,
-  .when,
-  .now {
-    margin-block-end: 50px;
+  .card {
+    margin-block-end: 45px;
   }
 
-  .picture {
+  .card__description {
     max-width: 371px;
     min-height: 371px;
   }
@@ -616,16 +574,20 @@ dialog[open] {
     padding: 24px 25px 0;
   }
 
+  .container {
+    padding: 28px;
+  }
+
   .button__footer {
     flex-direction: column;
-    max-width: 306px;
+    width: 306px;
     min-height: 80px;
     margin: 0;
     margin-block-end: 102px;
   }
 
   .footer__floppy {
-    max-width: 28px;
-    min-height: 28px;
+    width: 28px;
+    height: 28px;
   }
 }

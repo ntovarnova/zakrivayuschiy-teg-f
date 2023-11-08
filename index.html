@@ -17,56 +17,46 @@
     <script src="./scripts/set-theme.js"></script>
   </head>
   <body class="page">
-    <article class="card__header">
-      <header class="header">
-        <div class="header__content">
-          <h1 class="header__title">&lt;/HTML&gt;</h1>
-          <h2 class="header__title-closing">закрывающий тег</h2>
-        </div>
-        <nav class="theme-menu header__theme-menu">
-          <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
-          <ul class="theme-menu__list">
-            <li class="theme-menu__item">
-              <button
-                type="button"
-                data-theme="dark"
-                class="theme-menu__button"
-              >
-                ТЕМНО
-              </button>
-            </li>
-            <li class="theme-menu__item">
-              <button
-                type="button"
-                data-theme="auto"
-                disabled
-                class="theme-menu__button"
-              >
-                АВТО
-              </button>
-            </li>
-            <li class="theme-menu__item">
-              <button
-                type="button"
-                data-theme="light"
-                class="theme-menu__button"
-              >
-                СВЕТЛО
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </header>
-    </article>
+    <header class="header">
+      <div class="header__content">
+        <a class="header__title" href="#0">&lt;/HTML&gt;</a>
+        <h1 class="header__title-closing">закрывающий тег</h1>
+      </div>
+      <nav class="theme-menu header__theme-menu">
+        <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
+        <ul class="theme-menu__list">
+          <li class="theme-menu__item">
+            <button type="button" data-theme="dark" class="theme-menu__button">
+              ТЕМНО
+            </button>
+          </li>
+          <li class="theme-menu__item">
+            <button
+              type="button"
+              data-theme="auto"
+              disabled
+              class="theme-menu__button"
+            >
+              АВТО
+            </button>
+          </li>
+          <li class="theme-menu__item">
+            <button type="button" data-theme="light" class="theme-menu__button">
+              СВЕТЛО
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <main class="main">
-      <section class="card">
-        <article class="preparation">
-          <h3 class="heading section__title">
+      <section class="cards">
+        <article class="card">
+          <h2 class="card__title">
             Фритрек и нулевой спринт: Подготовка к работе
-          </h3>
-          <div class="picture">
-            <h3 class="label">&lt;/HTML&gt;</h3>
-            <picture class="Dubai">
+          </h2>
+          <div class="card__description">
+            <span class="label">&lt;/HTML&gt;</span>
+            <picture class="card__image">
               <img
                 loading="lazy"
                 src="./images/darcey-beau-vtK31JoeAFk-unsplash.jpg"
@@ -123,11 +113,11 @@
             </div>
           </div>
         </article>
-        <article class="blank">
-          <h3 class="heading section__title">1 спринт: Я — чистый лист</h3>
-          <div class="picture">
-            <h3 class="label">&lt;/HTML&gt;</h3>
-            <picture class="picture__car">
+        <article class="card">
+          <h2 class="card__title">1 спринт: Я — чистый лист</h2>
+          <div class="card__description">
+            <span class="label">&lt;/HTML&gt;</span>
+            <picture class="card__image">
               <img
                 loading="lazy"
                 src="images/kelly-sikkema-iiaUVel-cJE-unsplash.jpg"
@@ -187,11 +177,11 @@
             </div>
           </div>
         </article>
-        <article class="if">
-          <h3 class="heading section__title">1 спринт: А если не получится?</h3>
-          <div class="picture">
-            <h3 class="label">&lt;css&gt;</h3>
-            <picture class="picture__car">
+        <article class="card">
+          <h2 class="card__title">1 спринт: А если не получится?</h2>
+          <div class="card__description">
+            <span class="label">&lt;css&gt;</span>
+            <picture class="card__image">
               <img
                 loading="lazy"
                 src="./images/neom-wUyMk7ziLT0-unsplash.jpg"
@@ -209,7 +199,6 @@
             <p class="content__paragraph">
               «Дорогу осилит идущий!» Лично для меня всё было сложно
             </p>
-
             <div class="container">
               <button class="card__icon-button">
                 <svg
@@ -250,11 +239,11 @@
             </div>
           </div>
         </article>
-        <article class="chase">
-          <h3 class="heading section__title">2 спринт: Погоня за идеалом</h3>
-          <div class="picture">
-            <h3 class="text label">&lt;desigions&gt;</h3>
-            <picture class="picture__car">
+        <article class="card">
+          <h2 class="card__title">2 спринт: Погоня за идеалом</h2>
+          <div class="card__description">
+            <span class="text label">&lt;desigions&gt;</span>
+            <picture class="card__image">
               <img
                 loading="lazy"
                 src="./images/eren-yildiz-iRyV-q4mLt0-unsplash-2.jpg"
@@ -274,7 +263,6 @@
             <p class="content__paragraph">
               «Идеала не существует!» Вёрстка затягивает, это как большая игра.
             </p>
-
             <div class="container">
               <button class="card__icon-button">
                 <svg
@@ -315,11 +303,11 @@
             </div>
           </div>
         </article>
-        <article class="near">
-          <h3 class="heading section__title">2 спринт: О тех, кто рядом</h3>
-          <div class="picture">
-            <h3 class="text label">care</h3>
-            <picture class="picture__car">
+        <article class="card">
+          <h2 class="card__title">2 спринт: О тех, кто рядом</h2>
+          <div class="card__description">
+            <span class="text label">care</span>
+            <picture class="card__image">
               <img
                 loading="lazy"
                 src="./images/jason-goodman-bzqU01v-G54-unsplash.jpg"
@@ -380,11 +368,11 @@
             </div>
           </div>
         </article>
-        <article class="sprint">
-          <h3 class="heading section__title">3 спринт: Обходные стратегии</h3>
-          <div class="picture">
-            <h3 class="not label">&lt;support&gt;</h3>
-            <picture class="picture__car">
+        <article class="card">
+          <h2 class="card__title">3 спринт: Обходные стратегии</h2>
+          <div class="card__description">
+            <span class="not label">&lt;support&gt;</span>
+            <picture class="card__image">
               <img
                 loading="lazy"
                 src="./images/windows-v94mlgvsza4-unsplash.jpg"
@@ -442,13 +430,11 @@
             </div>
           </div>
         </article>
-        <article class="when">
-          <h3 class="heading section__title">
-            3 спринт: Когда опускаются руки
-          </h3>
-          <div class="picture">
-            <h3 class="not label">&lt;lifes-style: none;&gt;</h3>
-            <picture class="picture__car">
+        <article class="card">
+          <h2 class="card__title">3 спринт: Когда опускаются руки</h2>
+          <div class="card__description">
+            <span class="not label">&lt;lifes-style: none;&gt;</span>
+            <picture class="card__image">
               <img
                 loading="lazy"
                 src="./images/ethan-johnson-NDz_JwHHvXA-unsplash.jpg"
@@ -508,11 +494,11 @@
             </div>
           </div>
         </article>
-        <article class="now">
-          <h3 class="heading section__title">«Сейчас я здесь»</h3>
-          <div class="picture">
-            <h3 class="not label">&lt;experience&gt;</h3>
-            <picture class="picture__car">
+        <article class="card">
+          <h2 class="card__title">«Сейчас я здесь»</h2>
+          <div class="card__description">
+            <span class="not label">&lt;experience&gt;</span>
+            <picture class="card__image">
               <img
                 loading="lazy"
                 src="./images/leo-gyIRjKPXupE-unsplash-2.jpg"
@@ -584,18 +570,28 @@
         aria-controls="dialog-id"
       >
         <svg class="footer__floppy">
-          <use href="svg/floppy-2.svg#floppy-2" />
+          <use
+            href="svg/floppy-6-2-2.svg#floppy-6-2-2"
+            class="floppy-6-2-2"
+          ></use>
         </svg>
         <span class="button__text">Сохранить на память</span>
       </button>
     </footer>
     <dialog class="dialog__footer" id="dialog-id">
-      <svg class="dialog__floppy">
-        <use href="svg/floppy-4-2.svg#floppy-4-2" />
-      </svg>
-      <p>Вставьте дискету, чтобы продолжить</p>
+      <div class="svg">
+        <svg class="dialog__floppy">
+          <use
+            href="svg/floppy-6-2-2.svg#floppy-6-2-2"
+            class="floppy-6-2-2"
+          ></use>
+        </svg>
+        <p>Вставьте дискету, чтобы продолжить</p>
+      </div>
       <form method="dialog">
-        <button class="close" type="submit">ок</button>
+        <button class="close card__like-button" type="submit">
+          <span class="button__text">ок</span>
+        </button>
       </form>
     </dialog>
     <script src="./scripts/like.js"></script>

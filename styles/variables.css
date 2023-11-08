@@ -9,12 +9,11 @@
     repeating-linear-gradient(180deg, #000 0 2px, transparent 2px 4px),
     linear-gradient(180deg, #007f0c, #004306);
   --wght: 465;
-  --wgth-a: 785;
+  --wght-a: 785;
   --accent-font: "PressStart2P";
   --main-font: "Inter-Variable";
   --themes-main-color: #00cc14;
   --accent-color: #00cc14;
-  fill: #00cc14;
   --accent: #00cc14;
-  --heard: #f00;
+  --heart: #f00;
 }

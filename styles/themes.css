@@ -10,14 +10,13 @@
     repeating-linear-gradient(0deg, #000 0 2px, transparent 2px 4px),
     linear-gradient(#007f0c 0%, #004306 100%);
   --wght: 465;
-  --wgth-a: 785;
+  --wght-a: 785;
   --accent-font: "PressStart2P";
   --main-font: "Inter-Variable";
   --themes-main-color: #00cc14;
   --accent-color: #00cc14;
-  fill: #00cc14;
   --accent: #00cc14;
-  --heard: #f00;
+  --heart: #f00;
 }
 
 :root.theme-light {
@@ -31,13 +30,12 @@
     repeating-linear-gradient(0deg, #d3d3d3 0 2px, transparent 2px 4px),
     linear-gradient(#e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
   --wght: 400;
-  --wgth-a: 700;
+  --wght-a: 700;
   --themes-main-color: #000;
   --accent-font: "PressStart2P";
   --main-font: "Inter-Variable";
-  fill: #000;
   --accent: #fff;
-  --heard: #f00;
+  --heart: #f00;
 }
 
 @media (prefers-color-scheme: light) {
@@ -52,12 +50,11 @@
       repeating-linear-gradient(0deg, #d3d3d3 0 2px, transparent 2px 4px),
       linear-gradient(#e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
     --wght: 400;
-    --wgth-a: 700;
+    --wght-a: 700;
     --accent-font: "PressStart2P";
     --main-font: "Inter-Variable";
     --themes-main-color: #000;
-    fill: #000;
     --accent: #fff;
-    --heard: #f00;
+    --heart: #f00;
   }
 }

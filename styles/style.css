@@ -91,15 +91,16 @@
 .theme-menu__button::after {
   position: absolute;
   content: "";
-  max-width: 85px;
-  min-height: 2px;
   left: 0;
-  bottom: 0;
+  bottom: -2;
+  block-size: 2px;
   display: block;
   background: var(--themes-main-color, #00cc14);
   scale: 0;
+  inline-size: 100%;
   transition: scale 0.3s ease;
   transform-origin: left center;
+  opacity: 0.6;
 }
 
 .theme-menu__button:hover {
@@ -113,6 +114,7 @@
 
 .theme-menu__button:focus {
   outline: none;
+  opacity: 0.6;
 }
 
 .theme-menu__button:active {

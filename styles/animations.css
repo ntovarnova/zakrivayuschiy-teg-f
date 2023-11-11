@@ -37,19 +37,17 @@
 }
 
 @keyframes sparks {
-  0%,
-  100% {
+  from {
     opacity: 0;
   }
-  50% {
+  to {
     opacity: 1;
   }
 }
 
 .like-icon.is-liked .sparks {
   fill: var(--heart, #f00);
-  animation: sparks 0.3s 0.3s ease-in 1 alternate forwards;
-  opacity: 1;
+  animation: sparks 0.3s 0.3s ease-in alternate;
 }
 
 @keyframes fill {

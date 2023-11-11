@@ -17,7 +17,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font, sans-serif);
-  font-variation-settings: var(--wght, "wght" 400);
+  font-variation-settings: 'wght' var(--wght,400);
   background-color: var(--themes-background, #000);
   background-image: var(
     --gradient,
@@ -50,7 +50,7 @@
   min-height: 364px;
   font-family: var(--accent-font, "PressStart2P", fantasy);
   font-style: normal;
-  font-weight: var(--wght, "wght" 400);
+  font-weight:'wght' var(--wght, 400);
   line-height: normal;
   text-transform: uppercase;
 }
@@ -92,7 +92,7 @@
   position: absolute;
   content: "";
   left: 0;
-  bottom: -2;
+  bottom: 0;
   block-size: 2px;
   display: block;
   background: var(--themes-main-color, #00cc14);
@@ -153,7 +153,7 @@
   font-family: var(--main-font, sans-serif);
   font-size: 18px;
   font-style: normal;
-  font-variation-settings: var(--wght-a, "wght" 785);
+  font-variation-settings: 'wght' var(--wght-a, 785);
   line-height: normal;
   max-width: 696px;
   background-color: var(--themes-background, #000);
@@ -172,7 +172,7 @@
 .label {
   position: absolute;
   color: var(--themes-main-color, #00cc14);
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font, "PressStart2P", fantasy);
   font-size: 14px;
   font-style: normal;
   font-weight: var(--wght);
@@ -245,7 +245,7 @@ img {
   font-family: var(--main-font, sans-serif);
   font-size: 18px;
   font-style: normal;
-  font-variation-settings: var(--wght, "wght" 400);
+  font-variation-settings: 'wght' var(--wght, 400);
   line-height: 21px;
 }
 
@@ -269,7 +269,7 @@ img {
 
 .card__icon-button:focus-visible {
   border: 2px solid var(--themes-main-color, #00cc14);
-  transition: 0.3s ease;
+  transition:  transition-property 0.3s ease;
   outline: none;
   margin-right: 5px;
 }
@@ -309,7 +309,7 @@ img {
   outline: none;
   border: 2px solid var(--themes-main-color, #00cc14);
   box-shadow: 2px 2px 0px 0px var(--themes-main-color, #00cc14);
-  transition: 0.3s ease;
+  transition:  transition-property 0.3s ease;
 }
 
 .animation-button::after {

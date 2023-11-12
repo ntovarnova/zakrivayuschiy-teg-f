@@ -269,9 +269,9 @@ img {
 
 .card__icon-button:focus-visible {
   border: 2px solid var(--themes-main-color, #00cc14);
-  transition: transition-property 0.3s ease;
   outline: none;
   margin-right: 5px;
+  transition: box-shadow 0.3s ease;
 }
 
 .card__icon-button:focus {
@@ -309,7 +309,7 @@ img {
   outline: none;
   border: 2px solid var(--themes-main-color, #00cc14);
   box-shadow: 2px 2px 0px 0px var(--themes-main-color, #00cc14);
-  transition: transition-property 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .button::after {

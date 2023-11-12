@@ -271,7 +271,7 @@ img {
   border: 2px solid var(--themes-main-color, #00cc14);
   outline: none;
   margin-right: 5px;
-  transition: box-shadow 0.3s ease;
+  transition: border 0.3s ease;
 }
 
 .card__icon-button:focus {
